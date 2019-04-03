@@ -48,8 +48,14 @@
 			<Add directory="C:/Users/freew/Desktop/C++/SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="include/BoardDraw.h" />
+		<Unit filename="include/MSBoardTextView.h" />
+		<Unit filename="include/MSTextController.h" />
+		<Unit filename="include/MinesweeperBoard.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/BoardDraw.cpp" />
+		<Unit filename="src/MSBoardTextView.cpp" />
+		<Unit filename="src/MSTextController.cpp" />
+		<Unit filename="src/MinesweeperBoard.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

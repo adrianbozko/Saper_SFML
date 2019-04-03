@@ -1,36 +1,44 @@
 #include <iostream>
+#include "MinesweeperBoard.h"
+#include "MSBoardTextView.h"
+#include "MSTextController.h"
 #include <SFML/Graphics.hpp>
 #include "BoardDraw.h"
 
 int main()
 {
-    // create the window
-    sf::RenderWindow window(sf::VideoMode(800, 800), "SAPER");
-    BoardDraw bord(600,600,60);
+    int board_width = 10;
+    int board_height = 10;
+
+    int x0 = 50;
+    int y0 = 50;
+
+    int field_size = 60;
+
+    int window_width = 4*x0+board_width*field_size;
+    int window_heigt = 4*y0+board_height*field_size;
+
+    MinesweeperBoard Saper(board_width,board_height,EASY);
+    //                  CONSOLE MODE
+    //    MSBoardTextView game_view (Saper);
+    //    MSTextController control (Saper, game_view);
+    //    control.play();
+    //
+    sf::RenderWindow window(sf::VideoMode(window_width, window_heigt), "SAPER");
+    BoardDraw view(Saper,x0,y0,field_size);
 
 
-
-
-
-    // run the program as long as the window is open
     while (window.isOpen())
     {
-        // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-        // clear the window with black color
         window.clear(sf::Color::Black);
-
-        bord.create_board(window,100,100,100,700);
-        // draw everything here...
-
-        // end the current frame
+        //  view.create_board(window,100,100,100,700);
+        view.draw(window);
         window.display();
     }
 
