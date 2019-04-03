@@ -5,9 +5,8 @@
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(800, 800), "My window");
-    BoardDraw bord(600,600,100);
-    bord.create_line(window);
+    sf::RenderWindow window(sf::VideoMode(800, 800), "SAPER");
+    BoardDraw bord(600,600,60);
 
 
 
@@ -28,6 +27,7 @@ int main()
         // clear the window with black color
         window.clear(sf::Color::Black);
 
+        bord.create_board(window,100,100,100,700);
         // draw everything here...
 
         // end the current frame

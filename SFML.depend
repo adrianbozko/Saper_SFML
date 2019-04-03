@@ -525,14 +525,14 @@
 1554232241 c:\users\freew\desktop\c++\sfml - wzór\include\boarddraw.h
 	<SFML/Graphics.hpp>
 
-1554293097 source:c:\users\freew\desktop\c++\saper_sfml_git\src\boarddraw.cpp
+1554298227 source:c:\users\freew\desktop\c++\saper_sfml_git\src\boarddraw.cpp
 	"BoardDraw.h"
 	<SFML/Graphics.hpp>
 
-1554293098 c:\users\freew\desktop\c++\saper_sfml_git\include\boarddraw.h
+1554298227 c:\users\freew\desktop\c++\saper_sfml_git\include\boarddraw.h
 	<SFML/Graphics.hpp>
 
-1554234105 source:c:\users\freew\desktop\c++\saper_sfml_git\main.cpp
+1554298285 source:c:\users\freew\desktop\c++\saper_sfml_git\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"BoardDraw.h"
