@@ -47,6 +47,7 @@
 		<Linker>
 			<Add directory="C:/Users/freew/Desktop/C++/SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="../../bombtexture.png" />
 		<Unit filename="include/BoardDraw.h" />
 		<Unit filename="include/MSBoardTextView.h" />
 		<Unit filename="include/MSTextController.h" />

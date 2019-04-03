@@ -525,16 +525,16 @@
 1554232241 c:\users\freew\desktop\c++\sfml - wzór\include\boarddraw.h
 	<SFML/Graphics.hpp>
 
-1554314753 source:c:\users\freew\desktop\c++\saper_sfml_git\src\boarddraw.cpp
+1554322632 source:c:\users\freew\desktop\c++\saper_sfml_git\src\boarddraw.cpp
 	"BoardDraw.h"
 	"MinesweeperBoard.h"
 	<SFML/Graphics.hpp>
 
-1554314662 c:\users\freew\desktop\c++\saper_sfml_git\include\boarddraw.h
+1554322772 c:\users\freew\desktop\c++\saper_sfml_git\include\boarddraw.h
 	<SFML/Graphics.hpp>
 	"MinesweeperBoard.h"
 
-1554315067 source:c:\users\freew\desktop\c++\saper_sfml_git\main.cpp
+1554322658 source:c:\users\freew\desktop\c++\saper_sfml_git\main.cpp
 	<iostream>
 	"MinesweeperBoard.h"
 	"MSBoardTextView.h"

@@ -15,10 +15,10 @@ int main()
 
     int field_size = 60;
 
-    int window_width = 4*x0+board_width*field_size;
-    int window_heigt = 4*y0+board_height*field_size;
+    int window_width = 2*x0+board_width*field_size;
+    int window_heigt = 2*y0+board_height*field_size;
 
-    MinesweeperBoard Saper(board_width,board_height,EASY);
+    MinesweeperBoard Saper(board_width,board_height,DEBUG);
     //                  CONSOLE MODE
     //    MSBoardTextView game_view (Saper);
     //    MSTextController control (Saper, game_view);
@@ -37,8 +37,7 @@ int main()
                 window.close();
         }
         window.clear(sf::Color::Black);
-        //  view.create_board(window,100,100,100,700);
-        view.draw(window);
+        view.draw_board(window);
         window.display();
     }
 
