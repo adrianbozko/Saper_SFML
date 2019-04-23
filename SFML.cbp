@@ -47,16 +47,25 @@
 		<Linker>
 			<Add directory="C:/Users/freew/Desktop/C++/SFML-2.5.1/lib" />
 		</Linker>
-		<Unit filename="../../bombtexture.png" />
+		<Unit filename="image/bomb.png" />
+		<Unit filename="image/bombtexture.png" />
+		<Unit filename="image/field.png" />
+		<Unit filename="image/flag.png" />
+		<Unit filename="image/flagtexture.png" />
+		<Unit filename="image/pixelated.ttf" />
+		<Unit filename="image/revealed.png" />
+		<Unit filename="image/revealtexture.png" />
 		<Unit filename="include/BoardDraw.h" />
 		<Unit filename="include/MSBoardTextView.h" />
 		<Unit filename="include/MSTextController.h" />
 		<Unit filename="include/MinesweeperBoard.h" />
+		<Unit filename="include/OpenWindow.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/BoardDraw.cpp" />
 		<Unit filename="src/MSBoardTextView.cpp" />
 		<Unit filename="src/MSTextController.cpp" />
 		<Unit filename="src/MinesweeperBoard.cpp" />
+		<Unit filename="src/OpenWindow.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

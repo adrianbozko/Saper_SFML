@@ -525,22 +525,25 @@
 1554232241 c:\users\freew\desktop\c++\sfml - wzór\include\boarddraw.h
 	<SFML/Graphics.hpp>
 
-1554322632 source:c:\users\freew\desktop\c++\saper_sfml_git\src\boarddraw.cpp
+1556044706 source:c:\users\freew\desktop\c++\saper_sfml_git\src\boarddraw.cpp
 	"BoardDraw.h"
 	"MinesweeperBoard.h"
 	<SFML/Graphics.hpp>
+	"Single_Field.h"
 
-1554322772 c:\users\freew\desktop\c++\saper_sfml_git\include\boarddraw.h
+1556044657 c:\users\freew\desktop\c++\saper_sfml_git\include\boarddraw.h
 	<SFML/Graphics.hpp>
 	"MinesweeperBoard.h"
 
-1554322658 source:c:\users\freew\desktop\c++\saper_sfml_git\main.cpp
+1556056531 source:c:\users\freew\desktop\c++\saper_sfml_git\main.cpp
 	<iostream>
 	"MinesweeperBoard.h"
 	"MSBoardTextView.h"
 	"MSTextController.h"
 	<SFML/Graphics.hpp>
 	"BoardDraw.h"
+	"OpenWindow.h"
+	<string>
 
 1554302920 source:c:\users\freew\desktop\c++\saper_sfml_git\src\minesweeperboard.cpp
 	<iostream>
@@ -549,7 +552,7 @@
 	<stdlib.h>
 	<ctime>
 
-1554303400 c:\users\freew\desktop\c++\saper_sfml_git\include\minesweeperboard.h
+1556053954 c:\users\freew\desktop\c++\saper_sfml_git\include\minesweeperboard.h
 
 1554302920 source:c:\users\freew\desktop\c++\saper_sfml_git\src\msboardtextview.cpp
 	<iostream>
@@ -565,4 +568,22 @@
 1554302920 c:\users\freew\desktop\c++\saper_sfml_git\include\mstextcontroller.h
 	"MinesweeperBoard.h"
 	"MSBoardTextView.h"
+
+1554897373 source:c:\users\freew\desktop\c++\saper_sfml_git\src\single_field.cpp
+	"Single_Field.h"
+	"MinesweeperBoard.h"
+	"BoardDraw.h"
+
+1554897626 c:\users\freew\desktop\c++\saper_sfml_git\include\single_field.h
+	<SFML/Graphics.hpp>
+	"MinesweeperBoard.h"
+	"BoardDraw.h"
+
+1556050021 source:c:\users\freew\desktop\c++\saper_sfml_git\src\openwindow.cpp
+	"OpenWindow.h"
+	"BoardDraw.h"
+	"MinesweeperBoard.h"
+
+1556039416 c:\users\freew\desktop\c++\saper_sfml_git\include\openwindow.h
+	"MinesweeperBoard.h"
 
