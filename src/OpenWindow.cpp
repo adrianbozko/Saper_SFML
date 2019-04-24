@@ -125,18 +125,24 @@ void OpenWindow::create_openWindow(int &board_width, int &board_height, GameMode
                     board_width=10;
                     board_height=10;
                     size_options_1.setFillColor(sf::Color::Green);
+                    size_options_2.setFillColor(sf::Color::Black);
+                    size_options_3.setFillColor(sf::Color::Black);
                 }
                 if (event.mouseButton.x > 190 and event.mouseButton.x < 310 and event.mouseButton.y > 130 and event.mouseButton.y < 190)
                 {
                     board_width=15;
                     board_height=15;
                     size_options_2.setFillColor(sf::Color::Green);
+                    size_options_1.setFillColor(sf::Color::Black);
+                    size_options_3.setFillColor(sf::Color::Black);
                 }
                 if (event.mouseButton.x > 320 and event.mouseButton.x < 440 and event.mouseButton.y > 130 and event.mouseButton.y < 190)
                 {
                     board_width=20;
                     board_height=20;
                     size_options_3.setFillColor(sf::Color::Green);
+                    size_options_1.setFillColor(sf::Color::Black);
+                    size_options_2.setFillColor(sf::Color::Black);
                 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------
@@ -144,16 +150,22 @@ void OpenWindow::create_openWindow(int &board_width, int &board_height, GameMode
                 {
                     state=EASY;
                     level_options_1.setFillColor(sf::Color::Green);
+                    level_options_2.setFillColor(sf::Color::Black);
+                    level_options_3.setFillColor(sf::Color::Black);
                 }
                 if (event.mouseButton.x > 190 and event.mouseButton.x < 310 and event.mouseButton.y > 220 and event.mouseButton.y < 280)
                 {
                     state=NORMAL;
                     level_options_2.setFillColor(sf::Color::Green);
+                    level_options_1.setFillColor(sf::Color::Black);
+                    level_options_3.setFillColor(sf::Color::Black);
                 }
                 if (event.mouseButton.x > 320 and event.mouseButton.x < 440 and event.mouseButton.y > 220 and event.mouseButton.y < 280)
                 {
                     state=HARD;
                     level_options_3.setFillColor(sf::Color::Green);
+                    level_options_1.setFillColor(sf::Color::Black);
+                    level_options_2.setFillColor(sf::Color::Black);
                 }
 //------------------------------------------------------------------------------------------------------------
                 if (event.mouseButton.x > 150 and event.mouseButton.x < 350 and event.mouseButton.y > 310 and event.mouseButton.y < 390)

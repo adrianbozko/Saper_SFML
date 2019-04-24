@@ -21,7 +21,7 @@ int main()
 
     int field_size = 35;
 
-    GameMode state;
+    GameMode state=NORMAL;
 
     sf::Font font_text;
     font_text.loadFromFile("image/pixelated.ttf");
@@ -70,7 +70,8 @@ int main()
     BoardDraw view(Saper,x0,y0,field_size);
     view.loadTextures();
 
-
+    int f = Saper.getDifficulty();
+    int reset_clock=0;
     sf::Clock clock;
 
     while (window.isOpen())
@@ -86,8 +87,8 @@ int main()
 
             if (event.mouseButton.button == sf::Mouse::Left)
             {
-                int xpos=0;
-                int ypos=0;
+                int xpos=22;
+                int ypos=22;
 
                 if (event.mouseButton.x > x0 and event.mouseButton.x < x0+board_width*field_size and event.mouseButton.y > y0 and event.mouseButton.y < y0+board_height*field_size)
                 {
@@ -102,13 +103,18 @@ int main()
                             ypos=yi;
                     }
                 }
+
                 Saper.revealField(xpos,ypos);
+                std::cout<< Saper.emptyField << std::endl;
 
                     if (event.mouseButton.x > (x0+(board_width*field_size/2)-130) and event.mouseButton.x < (x0+(board_width*field_size/2)-10) and event.mouseButton.y > (y0+(board_height*field_size)+120) and event.mouseButton.y < (y0+(board_height*field_size)+200))
                     {
                         Saper.setBoard();
                         Saper.state=RUNNING;
                         Saper.moves=0;
+                        reset_clock=0;
+                        f=Saper.getDifficulty();
+                        //Saper.emptyField=Saper.gameFields(board_width,board_height)-Saper.getDifficulty();
                         clock.restart();
                     }
                     if (event.mouseButton.x > (x0+(board_width*field_size/2)+10) and event.mouseButton.x < (x0+(board_width*field_size/2)+10+120) and event.mouseButton.y > (y0+(board_height*field_size)+120) and event.mouseButton.y < (y0+(board_height*field_size)+120+80))
@@ -120,8 +126,9 @@ int main()
 
             if (event.mouseButton.button == sf::Mouse::Right)
             {
-                int xpos=0;
-                int ypos=0;
+                int xpos=22;
+                int ypos=22;
+
 
                 if (event.mouseButton.x > x0 and event.mouseButton.x < x0+board_width*field_size and event.mouseButton.y > y0 and event.mouseButton.y < y0+board_height*field_size)
                 {
@@ -135,8 +142,20 @@ int main()
                         if (event.mouseButton.y > y0+yi*field_size and event.mouseButton.y < y0+(yi+1)*field_size)
                             ypos=yi;
                     }
+
+                    if (Saper.hasFlag(xpos,ypos)==0 and Saper.isRevealed(xpos,ypos)==0)
+                    {
+                        Saper.toggleFlag(xpos,ypos);
+                        f--;
+                    }
+                    else if(Saper.hasFlag(xpos,ypos)==1 and Saper.isRevealed(xpos,ypos)==0)
+                        {
+                            Saper.removeFlag(xpos,ypos);
+                            f++;
+                        }
+
                 }
-                Saper.toggleFlag(xpos,ypos);
+
             }
         }
 
@@ -148,8 +167,13 @@ int main()
         sf::Time elapsed;
         if(Saper.moves>=1)
         {
+
+            if(reset_clock==0)
+            {
+                clock.restart();
+                reset_clock++;
+            }
         elapsed = clock.getElapsedTime();
-        std::cout << elapsed.asSeconds() << std::endl;
         }
 
 
@@ -176,8 +200,17 @@ int main()
             stoper.setFont(font_text);
             stoper.setFillColor(sf::Color::Black);
             stoper.setCharacterSize(50);
-            stoper.setPosition(x0+(board_width*field_size/2)-150+40,y0+(board_height*field_size)+35);
+            stoper.setPosition(x0+(board_width*field_size/2)-90,y0+(board_height*field_size)+35);
             window.draw(stoper);
+
+            sf::Text flags;
+            flags.setString(std::to_string(f));
+            flags.setFont(font_text);
+            flags.setFillColor(sf::Color::Black);
+            flags.setCharacterSize(50);
+            flags.setPosition(x0+(board_width*field_size/2)+50,y0+(board_height*field_size)+35);
+            window.draw(flags);
+
 
         }
 
@@ -209,7 +242,7 @@ int main()
         if(Saper.getGameState()==FINISHED_WIN)
         {
             sf::RectangleShape win_box(sf::Vector2f(300.f, 200.f));
-            win_box.setPosition(x0+(board_width*field_size/2)-150,y0+(board_height*field_size)+200);
+            win_box.setPosition(x0+(board_width*field_size/2)-150,y0+(board_height*field_size)+20);
             win_box.setFillColor(sf::Color::Black);
             sf::RectangleShape win_box1(sf::Vector2f(280.f, 180.f));
             win_box1.setPosition(x0+(board_width*field_size/2)-150+10,y0+(board_height*field_size)+30);
@@ -221,6 +254,7 @@ int main()
             win_text.setFillColor(sf::Color::Black);
             win_text.setCharacterSize(70);
             window.draw(win_box);
+            window.draw(win_box1);
             window.draw(win_text);
 
 

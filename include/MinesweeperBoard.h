@@ -19,15 +19,17 @@ class MinesweeperBoard {
 
     GameMode mode;
 
-    int mineFieldCounter;
-    int mineBoardCounter;
-    int emptyField;
-    int gameFields (int width, int height);
+int mineFieldCounter;
+
+
     void setField(int idx_x, int idx_y, bool hasMine, bool hasFlag, bool isRevealed);
 
 
 
     public:
+        int mineBoardCounter;
+        int gameFields (int width, int height);
+    int emptyField;
     MinesweeperBoard();
     MinesweeperBoard(int width, int height, GameMode mode);
     GameState state;
@@ -41,11 +43,14 @@ class MinesweeperBoard {
     bool isRevealed(int x, int y) const;
     bool hasMine (int x, int y) const;
     void toggleFlag(int x, int y);
+    void removeFlag(int x, int y);
     void revealField(int x, int y);
     void recursionReveal (int x, int y);
     GameState getGameState() const;
     char getFieldInfo(int x, int y);
     void setBoard();
+    int getDifficulty();
+    int diff;
 };
 
 #endif // MINESWEEPERBOARD_H

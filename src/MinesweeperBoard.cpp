@@ -33,7 +33,15 @@ int MinesweeperBoard::gameFields(int width, int height) {
     return area;
 }
 
+int MinesweeperBoard::getDifficulty()
+{
+    return diff;
+}
+
+
 void MinesweeperBoard::setBoard() {
+    mineBoardCounter=0;
+    emptyField=0;
     if(mode==DEBUG)
     {
         for (int y=0, x=0; y<boardHeight and x<boardWidth ; y++, x++)
@@ -55,6 +63,7 @@ void MinesweeperBoard::setBoard() {
         }
     }
         int difficulty = 0.1*gameFields(boardWidth,boardHeight);
+        diff = difficulty;
         for (int counter=1; counter<=difficulty; ++counter)
         {
             int rand_x = (rand() % boardWidth)+ 0;
@@ -80,6 +89,7 @@ void MinesweeperBoard::setBoard() {
             }
         }
         int difficulty = 0.2*gameFields(boardWidth,boardHeight);
+        diff = difficulty;
         for (int counter=1; counter<=difficulty; ++counter)
         {
             int rand_x = (rand() % boardWidth)+ 0;
@@ -105,6 +115,7 @@ void MinesweeperBoard::setBoard() {
             }
         }
         int difficulty = 0.3*gameFields(boardWidth,boardHeight);
+        diff = difficulty;
         for (int counter=1; counter<=difficulty; ++counter)
         {
             int rand_x = (rand() % boardWidth)+ 0;
@@ -228,6 +239,22 @@ void MinesweeperBoard::toggleFlag(int idx_x, int idx_y) {
         state=FINISHED_WIN;
 }
 
+void MinesweeperBoard::removeFlag(int idx_x, int idx_y) {
+    if (board[idx_y][idx_x].isRevealed==1)
+        return;
+    if (idx_x<0 or idx_x>=boardWidth or idx_y<0 or idx_y>=boardHeight)
+        return;
+    if (state==FINISHED_WIN or state==FINISHED_LOSS)
+        return;
+    if (board[idx_y][idx_x].isRevealed==0 and board[idx_y][idx_x].hasMine==1)
+    {
+        board[idx_y][idx_x].hasFlag=false;
+        mineBoardCounter++;
+    }
+    else
+        board[idx_y][idx_x].hasFlag=false;
+}
+
 void MinesweeperBoard::revealField(int idx_x, int idx_y) {
     if (idx_x<0 or idx_x>=boardWidth or idx_y<0 or idx_y>=boardHeight)
         return;
@@ -347,18 +374,18 @@ void MinesweeperBoard::recursionReveal(int idx_x, int idx_y) {
                 {
                     if (countMines(j, i) == 0)
                     {
-                        if (board[i][j].isRevealed==false)
+                        if (board[i][j].isRevealed==false and board[i][j].hasFlag==false)
                         {
                             board[i][j].isRevealed = true;
                             emptyField--;
-                            revealField(j, i);
+                            recursionReveal(j,i);
                         }
 
                     }
 
                     if (countMines(j, i) > 0)
                     {
-                        if (board[i][j].isRevealed==false)
+                        if (board[i][j].isRevealed==false and board[i][j].hasFlag==false)
                         {
                             board[i][j].isRevealed = true;
                             emptyField--;
@@ -368,4 +395,6 @@ void MinesweeperBoard::recursionReveal(int idx_x, int idx_y) {
             }
         }
     }
+    if (emptyField==0)
+        state=FINISHED_WIN;
 }
